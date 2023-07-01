@@ -6,14 +6,14 @@ var data = {
       "description": "Real Estate App Prototype using Flutter Framework",
       "video" : "projects/realEstate/demo.mp4",
       "images": [
-        "projects/realEstate/images/screenshot1.png",
-        "projects/realEstate/images/screenshot2.png",
-        "projects/realEstate/images/screenshot3.png",
-        "projects/realEstate/images/screenshot4.png",
-        "projects/realEstate/images/screenshot5.png",
-        "projects/realEstate/images/screenshot6.png",
-        "projects/realEstate/images/screenshot7.png",
-        "projects/realEstate/images/screenshot8.png"
+        "projects/realEstate/images/Screenshot1.png",
+        "projects/realEstate/images/Screenshot2.png",
+        "projects/realEstate/images/Screenshot3.png",
+        "projects/realEstate/images/Screenshot4.png",
+        "projects/realEstate/images/Screenshot5.png",
+        "projects/realEstate/images/Screenshot6.png",
+        "projects/realEstate/images/Screenshot7.png",
+        "projects/realEstate/images/Screenshot8.png"
     ]
     }
   }
