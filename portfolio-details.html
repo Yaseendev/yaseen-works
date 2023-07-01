@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Portfolio Details - Personal Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Personal
+  * Updated: Jun 18 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details ======= -->
+    <div id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8">
+            <h2 class="portfolio-title">This is an example of portfolio detail</h2>
+
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center" id="media">
+
+                <!-- <div class="swiper-slide">
+                  <video width="700" height="463" controls>
+                    <source src="projects/eshop/EShopeDemo.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                </div> -->
+
+                <!-- <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
+                </div> -->
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-4 portfolio-info">
+            <h3>Project information</h3>
+            <ul id="project-info">
+              <li><strong>Project date</strong>: <a id="date">01 March, 2020</a> </li>
+              <li><strong>Project URL</strong>: <a id="project-url" href="#">www.example.com</a></li>
+            </ul>
+
+            <p id="description">
+              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div><!-- End Portfolio Details -->
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script> 
+    const projName = localStorage.getItem('projectName');
+    console.log(projName);
+    const projectFile = "projects/"+projName+"/"+projName+".js";
+    let scriptEle = document.createElement("script");
+    scriptEle.setAttribute("src", projectFile);
+    scriptEle.setAttribute("type", "text/javascript");
+    // scriptEle.setAttribute("async", async);
+    document.body.appendChild(scriptEle);
+    // success event 
+  scriptEle.addEventListener("load", () => {
+    console.log("File loaded");
+    document.getElementsByClassName('portfolio-title').item(0).textContent = data.project.title;
+    document.getElementById('date').innerText = data.project.date;
+    document.getElementById('project-url').setAttribute('href', data.project.url);
+    document.getElementById('project-url').setAttribute('target', data.project.url);
+    document.getElementById('project-url').innerText = data.project.url;
+    document.getElementById('description').innerText = data.project.description;
+    document.getElementById('media').innerHTML = '';
+    if(data.project.video != null) {
+      document.getElementById('media').innerHTML = '<div class="swiper-slide"> <video width="800" height="463" controls> <source src="'+data.project.video+'" type="video/mp4"> Your browser does not support the video tag. </video> </div>';
+    }
+    for (let index = 0; index < data.project.images.length; index++) {
+      const element = data.project.images[index];
+      console.log(element);
+      document.getElementById('media').innerHTML += '<div class="swiper-slide"> <img src="'+element+'" alt="" style="width: 700px; height: 463px; object-fit: contain;"></div>';
+      
+    }
+    //document.getElementById('media').innerHTML += '</div> <div class="swiper-pagination"></div></div>';
+  }); 
+   // error event
+  scriptEle.addEventListener("error", (ev) => {
+    console.log("Error loading file", ev);
+  });
+    
+  </script>
+
+</body>
+
+</html>
